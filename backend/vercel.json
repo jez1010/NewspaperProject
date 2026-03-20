@@ -1,7 +1,12 @@
 {
   "version": 2,
+  "framework": "nestjs",
+  "functions": {
+    "src/main.ts": {
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/main" }
-  ],
-  "framework": "nestjs"
+    { "source": "/(.*)", "destination": "/src/main.ts" }
+  ]
 }
