@@ -1,7 +1,7 @@
 export const formatDate = (timestamp) => {
-    return new Date(timestamp).toLocaleDateString();
+  return new Date(timestamp).toLocaleDateString();
 };
 
 export const formatTime = (timestamp) => {
-    return new Date(timestamp).toLocaleTimeString();
+  return new Date(timestamp).toLocaleTimeString();
 };

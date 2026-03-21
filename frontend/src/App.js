@@ -7,6 +7,7 @@ import {supabase} from './config';
 import './App.css';
 
 import ViewArticle from './components/Articles/ViewArticle';
+import WriteArticle from './components/Articles/WriteArticle';
 
 function App(){
   return (
@@ -19,7 +20,10 @@ function App(){
           element = {<ViewArticle/>}
         />
 
-
+        <Route 
+          path = "/write-article" 
+          element = {<WriteArticle/>}
+        />
       </Routes>
     </Router>
   )

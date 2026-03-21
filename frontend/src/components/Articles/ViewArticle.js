@@ -5,7 +5,8 @@ import {useParams} from 'react-router-dom';
 import {baseUrl} from "../../config";
 import * as functions from '../functions'
 
-import styles from './ViewArticle.module.css';
+import '../../App.css';
+import pageStyles from './ViewArticle.module.css';
 
 function ViewArticle() {
   const {id} = useParams();
@@ -31,19 +32,26 @@ function ViewArticle() {
 
   const sameData = article.created_at !== article.modified_at;
 
+  if (loading) return <div className = "loader"></div>
 
   return (
     <article>
       <div key = {article.id}>
-        <h1>{article.header}</h1>
-        <h5>Published on {functions.formatDate(article.created_at)}, {functions.formatTime(article.created_at)}</h5>
+        <div className = "title">{article.header}</div>
+        <div className = "subtitle">
+          Published on {functions.formatDate(article.created_at)}, {functions.formatTime(article.created_at)}
+        </div>
         {sameData && 
           (
-            <h5>Modified on {functions.formatDate(article.created_at)}, {functions.formatTime(article.created_at)}</h5>
+            <div className = "subtitle">
+              Modified on {functions.formatDate(article.created_at)}, {functions.formatTime(article.created_at)}
+            </div>
           )      
         }
+        <hr/>
         {article.content}
       </div>
+        <div className = {pageStyles.test}>test</div>
     </article>
   );
 }
