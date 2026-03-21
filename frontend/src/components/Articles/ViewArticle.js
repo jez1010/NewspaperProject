@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 
 import {baseUrl} from "../../config";
+import * as functions from '../functions'
 
 import styles from './ViewArticle.module.css';
 
@@ -33,14 +34,16 @@ function ViewArticle() {
 
   return (
     <article>
-      <h1>{article.header}</h1>
-      <h5>{article.created_at}</h5>
-      {sameData && 
-        (
-          <h5>{article.modified_at}</h5>
-        )      
-      }
-      {article.content}
+      <div key = {article.id}>
+        <h1>{article.header}</h1>
+        <h5>Published on {functions.formatDate(article.created_at)}, {functions.formatTime(article.created_at)}</h5>
+        {sameData && 
+          (
+            <h5>Modified on {functions.formatDate(article.created_at)}, {functions.formatTime(article.created_at)}</h5>
+          )      
+        }
+        {article.content}
+      </div>
     </article>
   );
 }
